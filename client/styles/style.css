@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #0a0e14;
+  /* text-align: center; */
+  font-family: "Poppins", sans-serif;
+}
+
+.button-wrapper img {
+  margin-right: 30px;
+  width: 200px;
+  height: 200px;
+}
+
+header div {
+  background: #fff;
+  color: #0a0e14;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+.button-wrapper {
+  margin-top: 20px;
+}
+
+.turn:hover {
+  cursor: pointer;
+}
+
+.rps-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wining-msg h1 {
+  font-size: 35px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.chatbox {
+  /* margin-top: 200px; */
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 200px;
+  overflow: auto;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.chatbox ul li {
+  margin-left: 20px;
+}
+
+#say {
+  background: #688eb4;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#say:hover {
+  background: #a8caec;
+  cursor: pointer;
+}
+
+#chat-form input {
+  padding: 5px 20px;
+  width: 500px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#chat-form input:focus {
+  border: none;
+  outline-style: hidden;
+}
+
+.color {
+  color: red;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock Paper Scissors</title>
+    <!-- <link rel="stylesheet" href="styles/main.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Rock Paper Scissors</h1>
+      </div>
+    </header>
+
+    <div class="rps-wrapper">
+      <div class="button-wrapper">
+        <a id="rock" class="turn"><img src="rock.png" alt="Rock"/></a>
+        <a id="paper" class="turn"><img src="paper.png" alt="Paper"/></a>
+        <a id="scissors" class="turn"
+          ><img src="scissors.png" alt="Scissors"
+        /></a>
+      </div>
+
+      <div class="wining-msg">
+        <h1>You Won</h1>
+      </div>
+
+      <div class="chatbox">
+        <ul id="events"></ul>
+      </div>
+      <div class="controls">
+        <div class="chat-wrapper">
+          <form id="chat-form">
+            <input id="chat" autocomplete="off" title="chat" />
+            <button id="say">Chat</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="src/client.js"></script>
+  </body>
+</html>
