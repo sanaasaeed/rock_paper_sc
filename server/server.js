@@ -23,7 +23,6 @@ io.on("connection", sock => {
     waitingPlayer = null;
   } else {
     waitingPlayer = sock;
-    waitingPlayer.emit("message", "Player 1");
     waitingPlayer.emit("message", "Waiting for an opponent");
   }
 
@@ -37,5 +36,5 @@ server.on("error", err => {
 });
 
 server.listen(8080, () => {
-  console.log("Rock Paper Scissors started on 8080");
+  console.log("RPS started on 8080");
 });

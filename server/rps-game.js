@@ -1,26 +1,30 @@
-
 class RpsGame {
-
   constructor(p1, p2) {
     this._players = [p1, p2];
     this._turns = [null, null];
 
-    this._sendToPlayers('Rock Paper Scissors Starts!');
+    this._sendToPlayers("Rock Paper Scissors Starts!");
 
     this._players.forEach((player, idx) => {
-      player.on('turn', (turn) => {
+      player.on("turn", turn => {
         this._onTurn(idx, turn);
       });
     });
   }
 
   _sendToPlayer(playerIndex, msg) {
-    this._players[playerIndex].emit('message', msg);
+    this._players[playerIndex].emit("game", msg);
   }
 
   _sendToPlayers(msg) {
-    this._players.forEach((player) => {
-      player.emit('message', msg);
+    this._players.forEach(player => {
+      player.emit("message", msg);
+    });
+  }
+
+  _sendDrawMessage() {
+    this._players.forEach(player => {
+      player.emit("win", "Draw!");
     });
   }
 
@@ -35,15 +39,14 @@ class RpsGame {
     const turns = this._turns;
 
     if (turns[0] && turns[1]) {
-      this._sendToPlayers('Game over ' + turns.join(' : '));
+      this._sendToPlayers("Game over " + turns.join(" : "));
       this._getGameResult();
       this._turns = [null, null];
-      this._sendToPlayers('Next Round!!!!');
+      this._sendToPlayers("..................");
     }
   }
 
   _getGameResult() {
-
     const p0 = this._decodeTurn(this._turns[0]);
     const p1 = this._decodeTurn(this._turns[1]);
 
@@ -51,7 +54,7 @@ class RpsGame {
 
     switch (distance) {
       case 0:
-        this._sendToPlayers('Draw!');
+        this._sendDrawMessage();
         break;
 
       case 1:
@@ -65,24 +68,22 @@ class RpsGame {
   }
 
   _sendWinMessage(winner, loser) {
-    winner.emit('message', 'You won!');
-    loser.emit('message', 'You lost.');
+    winner.emit("win", "You won!");
+    loser.emit("win", "You lost!");
   }
 
   _decodeTurn(turn) {
     switch (turn) {
-      case 'rock':
+      case "rock":
         return 0;
-      case 'scissors':
+      case "scissors":
         return 1;
-      case 'paper':
+      case "paper":
         return 2;
       default:
         throw new Error(`Could not decode turn ${turn}`);
     }
   }
-
-
 }
 
 module.exports = RpsGame;
